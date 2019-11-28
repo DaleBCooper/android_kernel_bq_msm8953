@@ -639,6 +639,7 @@
 	qcom,iterm-ma = <150>;
 	qcom,float-voltage-mv = <4400>;
 	qcom,resume-delta-mv = <100>;
+	/* qcom,thermal-mitigation = <2300 1800 1200 800 500 300 0>; */
 	qcom,thermal-mitigation = <3000 2500 1950 1400 900 700 0>;
 	qcom,fastchg-current-ma = <2200>;
 	qcom,charging-timeout-mins = <768>;
@@ -649,6 +650,7 @@
 	qcom,override-usb-current;
 	qcom,chg-led-sw-controls;
 	qcom,chg-led-support;
+        qcom,max-pulse-allowed = <10>;
 };
 
 &qpnp_fg {
@@ -660,13 +662,14 @@
 	qcom,fg-cc-cv-threshold-mv = <4390>;
 	qcom,cycle-counter-low-soc = <15>;
 	qcom,cycle-counter-high-soc = <85>;
-	qcom,cl-max-temp-decidegc = <450>;
+	/* qcom,cl-max-temp-decidegc = <450>; */
+	qcom,cl-max-temp-decidegc = <400>;
 	qcom,cl-min-temp-decidegc = <150>;
 	qcom,cl-max-start-soc = <5>;
 	qcom,capacity-learning-feedback;
 	qcom,cold-bat-decidegc = <0>;
 	qcom,cool-bat-decidegc = <150>;
-	qcom,warm-bat-decidegc = <450>;
+	qcom,warm-bat-decidegc = <400>;
 	qcom,fg-delta-soc = <1>;
 	qcom,fg-vbat-estimate-diff-mv = <200>;
 	qcom,fg-therm-delay-us = <3000>;
