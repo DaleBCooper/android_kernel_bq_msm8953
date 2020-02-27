@@ -481,7 +481,7 @@ tpPESession peFindSessionByPeerSta(tpAniSirGlobal pMac, tANI_U8*  sa, tANI_U8* s
 
 --------------------------------------------------------------------------*/
  tpPESession peFindSessionByStaId(tpAniSirGlobal pMac,  tANI_U8  staid,    tANI_U8* sessionId);
- 
+
 /**
  * pe_find_session_by_sme_session_id() - looks up the PE session for given sme
  * session id

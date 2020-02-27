@@ -6424,34 +6424,34 @@ tANI_U32 dot11fGetPackedAddTSResponseSize(tpAniSirGlobal pCtx, tDot11fAddTSRespo
 #endif /* C++ */
 
 typedef struct sDot11fAssocRequest{
-    tDot11fFfCapabilities   Capabilities;
-    tDot11fFfListenInterval ListenInterval;
-    tDot11fIESSID           SSID;
-    tDot11fIESuppRates      SuppRates;
-    tDot11fIEExtSuppRates   ExtSuppRates;
-    tDot11fIEPowerCaps      PowerCaps;
-    tDot11fIESuppChannels   SuppChannels;
-    tDot11fIERSNOpaque      RSNOpaque;
-    tDot11fIEQOSCapsStation QOSCapsStation;
-    tDot11fIERRMEnabledCap  RRMEnabledCap;
-    tDot11fIEMobilityDomain MobilityDomain;
+    tDot11fFfCapabilities         Capabilities;
+    tDot11fFfListenInterval       ListenInterval;
+    tDot11fIESSID                 SSID;
+    tDot11fIESuppRates            SuppRates;
+    tDot11fIEExtSuppRates         ExtSuppRates;
+    tDot11fIEPowerCaps            PowerCaps;
+    tDot11fIESuppChannels         SuppChannels;
+    tDot11fIERSNOpaque            RSNOpaque;
+    tDot11fIEQOSCapsStation       QOSCapsStation;
+    tDot11fIERRMEnabledCap        RRMEnabledCap;
+    tDot11fIEMobilityDomain       MobilityDomain;
     tDot11fIEdh_parameter_element dh_parameter_element;
-    tDot11fIEWPAOpaque      WPAOpaque;
-    tDot11fIEHTCaps         HTCaps;
-    tDot11fIEWMMCaps        WMMCaps;
-    tDot11fIEWMMInfoStation WMMInfoStation;
-    tDot11fIEAirgo          Airgo;
-    tDot11fIEWscIEOpaque    WscIEOpaque;
-    tDot11fIEWAPIOpaque     WAPIOpaque;
-    tDot11fIEESERadMgmtCap  ESERadMgmtCap;
-    tDot11fIEESEVersion     ESEVersion;
-    tDot11fIEP2PIEOpaque    P2PIEOpaque;
-    tDot11fIEWFDIEOpaque    WFDIEOpaque;
-    tDot11fIEVHTCaps        VHTCaps;
-    tDot11fIEExtCap         ExtCap;
-    tDot11fIEOperatingMode  OperatingMode;
-    tDot11fIEQosMapSet      QosMapSet;
-    tDot11fIEhs20vendor_ie  hs20vendor_ie;
+    tDot11fIEWPAOpaque            WPAOpaque;
+    tDot11fIEHTCaps               HTCaps;
+    tDot11fIEWMMCaps              WMMCaps;
+    tDot11fIEWMMInfoStation       WMMInfoStation;
+    tDot11fIEAirgo                Airgo;
+    tDot11fIEWscIEOpaque          WscIEOpaque;
+    tDot11fIEWAPIOpaque           WAPIOpaque;
+    tDot11fIEESERadMgmtCap        ESERadMgmtCap;
+    tDot11fIEESEVersion           ESEVersion;
+    tDot11fIEP2PIEOpaque          P2PIEOpaque;
+    tDot11fIEWFDIEOpaque          WFDIEOpaque;
+    tDot11fIEVHTCaps              VHTCaps;
+    tDot11fIEExtCap               ExtCap;
+    tDot11fIEOperatingMode        OperatingMode;
+    tDot11fIEQosMapSet            QosMapSet;
+    tDot11fIEhs20vendor_ie        hs20vendor_ie;
 } tDot11fAssocRequest;
 
 #define DOT11F_ASSOCREQUEST ( 5 )

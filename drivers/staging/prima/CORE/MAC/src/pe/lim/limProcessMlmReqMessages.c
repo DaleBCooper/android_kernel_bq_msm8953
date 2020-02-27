@@ -869,8 +869,8 @@ void limDoSendAuthMgmtFrame(tpAniSirGlobal pMac, tpPESession psessionEntry)
              psessionEntry->sae_pmk_cached) {
              authFrameBody.authAlgoNumber = eSIR_OPEN_SYSTEM;
          } else {
-        authFrameBody.authAlgoNumber =
-                        (tANI_U8) pMac->lim.gpLimMlmAuthReq->authType;
+             authFrameBody.authAlgoNumber =
+                             (tANI_U8) pMac->lim.gpLimMlmAuthReq->authType;
          }
         //Prepare & send Authentication frame
         authFrameBody.authTransactionSeqNumber = SIR_MAC_AUTH_FRAME_1;
@@ -2746,7 +2746,7 @@ limProcessMlmAuthReq(tpAniSirGlobal pMac, tANI_U32 *pMsgBuf)
                 return;
             }
         } else {
-        psessionEntry->limMlmState = eLIM_MLM_WT_AUTH_FRAME2_STATE;
+            psessionEntry->limMlmState = eLIM_MLM_WT_AUTH_FRAME2_STATE;
         }
 
         MTRACE(macTrace(pMac, TRACE_CODE_MLM_STATE, psessionEntry->peSessionId, psessionEntry->limMlmState));

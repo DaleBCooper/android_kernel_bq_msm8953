@@ -732,15 +732,15 @@ limProcessAuthFrame(tpAniSirGlobal pMac, tANI_U8 *pRxPacketInfo, tpPESession pse
                     if (pStaDs->mlmStaContext.mlmState ==
                         eLIM_MLM_LINK_ESTABLISHED_STATE) {
                         limLog(pMac, LOGE,
-                            FL("STA is already connected but received auth frame"
-                                "Send the Deauth and lim Delete Station Context"
-                                "(staId: %d, assocId: %d) "),
-                            pStaDs->staIndex, assocId);
+                               FL("STA is already connected but received auth frame"
+                                  "Send the Deauth and lim Delete Station Context"
+                                  "(staId: %d, assocId: %d) "),
+                               pStaDs->staIndex, assocId);
                         limSendDeauthMgmtFrame(pMac,
                                                eSIR_MAC_UNSPEC_FAILURE_REASON,
                                                (tANI_U8 *) pHdr->sa,
                                                psessionEntry, FALSE);
-                    limTriggerSTAdeletion(pMac, pStaDs, psessionEntry);
+                        limTriggerSTAdeletion(pMac, pStaDs, psessionEntry);
                     }
                     goto free;
                 }
@@ -1216,18 +1216,18 @@ limProcessAuthFrame(tpAniSirGlobal pMac, tANI_U8 *pRxPacketInfo, tpPESession pse
                             FL("rx Auth frame2 auth algo %d in SAE PMK case"),
                             pRxAuthFrameBody->authAlgoNumber);
                 } else {
-                /**
-                 * Received Authentication frame with an auth
-                 * algorithm other than one requested.
-                 * Wait until Authentication Failure Timeout.
-                 */
-                // Log error
-                PELOGW(limLog(pMac, LOGW,
+                    /**
+                     * Received Authentication frame with an auth
+                     * algorithm other than one requested.
+                     * Wait until Authentication Failure Timeout.
+                     */
+                    // Log error
+                    PELOGW(limLog(pMac, LOGW,
                            FL("received Auth frame2 for unexpected auth algo num %d "
-                       MAC_ADDRESS_STR), pRxAuthFrameBody->authAlgoNumber,
-                       MAC_ADDR_ARRAY(pHdr->sa));)
-                break;
-            }
+                           MAC_ADDRESS_STR), pRxAuthFrameBody->authAlgoNumber,
+                           MAC_ADDR_ARRAY(pHdr->sa));)
+                    break;
+                }
             }
 
             if (pRxAuthFrameBody->authStatusCode ==

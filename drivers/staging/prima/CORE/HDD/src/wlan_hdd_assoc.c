@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2019 The Linux Foundation. All rights reserved.
+ * Copyright (c) 2012-2020 The Linux Foundation. All rights reserved.
  *
  * Previously licensed under the ISC license by Qualcomm Atheros, Inc.
  *
@@ -2482,52 +2482,52 @@ static eHalStatus hdd_AssociationCompletionHandler( hdd_adapter_t *pAdapter, tCs
                 return eHAL_STATUS_FAILURE;
             }
 
-                //Association Response
+            //Association Response
             pFTAssocRsp = (u8 *)(pRoamInfo->pbFrames +
                                  pRoamInfo->nBeaconLength +
-                                    pRoamInfo->nAssocReqLength);
-                if (pFTAssocRsp != NULL)
-                {
-                    // pFTAssocRsp needs to point to the IEs
-                    pFTAssocRsp += FT_ASSOC_RSP_IES_OFFSET;
-                    hddLog(LOG1, "%s: AssocRsp is now at %02x%02x", __func__,
-                                        (unsigned int)pFTAssocRsp[0],
-                                        (unsigned int)pFTAssocRsp[1]);
+                                 pRoamInfo->nAssocReqLength);
+            if (pFTAssocRsp != NULL)
+            {
+                // pFTAssocRsp needs to point to the IEs
+                pFTAssocRsp += FT_ASSOC_RSP_IES_OFFSET;
+                hddLog(LOG1, "%s: AssocRsp is now at %02x%02x", __func__,
+                       (unsigned int)pFTAssocRsp[0],
+                       (unsigned int)pFTAssocRsp[1]);
                 assocRsplen =
                          pRoamInfo->nAssocRspLength - FT_ASSOC_RSP_IES_OFFSET;
-                }
-                else
-                {
-                    hddLog(LOGE, "%s:AssocRsp is NULL", __func__);
-                    assocRsplen = 0;
-                }
+            }
+            else
+            {
+                hddLog(LOGE, "%s:AssocRsp is NULL", __func__);
+                assocRsplen = 0;
+            }
 
-                //Association Request
-                pFTAssocReq = (u8 *)(pRoamInfo->pbFrames +
-                                     pRoamInfo->nBeaconLength);
-                if (pFTAssocReq != NULL)
-                {
-                    if(!ft_carrier_on)
-                    {
-                         // pFTAssocReq needs to point to the IEs
-                        pFTAssocReq += FT_ASSOC_REQ_IES_OFFSET;
-                        hddLog(LOG1, "%s: pFTAssocReq is now at %02x%02x", __func__,
-                                              (unsigned int)pFTAssocReq[0],
-                                              (unsigned int)pFTAssocReq[1]);
+            //Association Request
+            pFTAssocReq = (u8 *)(pRoamInfo->pbFrames +
+                                 pRoamInfo->nBeaconLength);
+            if (pFTAssocReq != NULL)
+            {
+                 if(!ft_carrier_on)
+                 {
+                    // pFTAssocReq needs to point to the IEs
+                    pFTAssocReq += FT_ASSOC_REQ_IES_OFFSET;
+                    hddLog(LOG1, "%s: pFTAssocReq is now at %02x%02x", __func__,
+                           (unsigned int)pFTAssocReq[0],
+                           (unsigned int)pFTAssocReq[1]);
                      assocReqlen =
                           pRoamInfo->nAssocReqLength - FT_ASSOC_REQ_IES_OFFSET;
-                    }
-                    else
-                    {
-                        /* This should contain only the FTIEs */
-                        assocReqlen = pRoamInfo->nAssocReqLength;
-                    }
-                }
-                else
-                {
-                    hddLog(LOGE, "%s:AssocReq is NULL", __func__);
-                    assocReqlen = 0;
-                }
+                 }
+                 else
+                 {
+                     /* This should contain only the FTIEs */
+                     assocReqlen = pRoamInfo->nAssocReqLength;
+                 }
+            }
+            else
+            {
+                hddLog(LOGE, "%s:AssocReq is NULL", __func__);
+                assocReqlen = 0;
+            }
 
             hddLog(LOG1, "assocReqlen %d assocRsplen %d", assocReqlen,
                    assocRsplen);
@@ -4511,7 +4511,7 @@ eCsrAuthType hdd_TranslateRSNToCsrAuthType( u_int8_t auth_suite[4])
      * overwritten in hdd_translate_sae_rsn_to_csr_auth
      */
      hdd_translate_sae_rsn_to_csr_auth(auth_suite, &auth_type);
-    }
+     }
 
     hddLog(LOG1, FL("auth_type : %d"), auth_type);
 
@@ -4649,6 +4649,7 @@ static tANI_S32 hdd_ProcessGENIE(hdd_adapter_t *pAdapter,
        flag to 0 */
     memset( &dot11WPAIE, 0 , sizeof(tDot11fIEWPA) );
     memset( &dot11RSNIE, 0 , sizeof(tDot11fIERSN) );
+    memset( PMKIDCache, 0 , sizeof(tPmkidCacheInfo) * 4);
 
     // Type check
     if ( gen_ie[0] ==  DOT11F_EID_RSN)
