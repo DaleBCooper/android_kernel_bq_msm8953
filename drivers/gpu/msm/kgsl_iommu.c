@@ -43,7 +43,7 @@
 #define ADDR_IN_GLOBAL(_mmu, _a) \
 	(((_a) >= KGSL_IOMMU_GLOBAL_MEM_BASE(_mmu)) && \
 	 ((_a) < (KGSL_IOMMU_GLOBAL_MEM_BASE(_mmu) + \
-	 KGSL_IOMMU_GLOBAL_MEM_SIZE(_mmu))))
+	 KGSL_IOMMU_GLOBAL_MEM_SIZE)))
 
 /*
  * Flag to set SMMU memory attributes required to
